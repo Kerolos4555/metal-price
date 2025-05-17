@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
-import 'package:metal_price/widgets/text_icon_button.dart';
+import 'package:metal_price/widgets/horizontal_buttons.dart';
+import 'package:metal_price/widgets/last_update.dart';
+import 'package:metal_price/widgets/list_header.dart';
+import 'package:metal_price/widgets/metal_price_list.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -9,106 +11,25 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        //backgroundColor: Colors.blue,
-        title: const Text(
-          'Metals',
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-        ),
+        title: const Text('Metals'),
         actions: [
           IconButton(
             onPressed: () {},
-            icon: const Icon(Icons.dark_mode_outlined, color: Colors.white),
+            icon: const Icon(Icons.dark_mode_outlined),
           ),
         ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+      body: const Padding(
+        padding: EdgeInsets.symmetric(vertical: 8, horizontal: 12),
         child: Column(
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                TextIconButton(onPress: () {}, title: 'Egypt'),
-                TextIconButton(onPress: () {}, title: 'Gold'),
-              ],
-            ),
-            const SizedBox(height: 8),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  DateFormat('EEEE, MMM d, yyyy').format(DateTime.now()),
-                  style: const TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-                IconButton(onPressed: () {}, icon: const Icon(Icons.refresh)),
-              ],
-            ),
-            const SizedBox(height: 12),
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.blue,
-                borderRadius: BorderRadius.circular(8),
-              ),
-              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
-              child: const Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Type',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  Text(
-                    'Price',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(height: 8),
-            Expanded(
-              child: ListView.separated(
-                itemCount: 10,
-                separatorBuilder: (context, index) {
-                  return const SizedBox(height: 8);
-                },
-                itemBuilder: (context, index) {
-                  return Card(
-                    elevation: 2,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: const Padding(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: 8,
-                        vertical: 16,
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            '24K',
-                            style: TextStyle(fontWeight: FontWeight.w500),
-                          ),
-                          Text(
-                            '4378 EGP',
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                        ],
-                      ),
-                    ),
-                  );
-                },
-              ),
-            ),
+            HorizontalButtons(),
+            SizedBox(height: 8),
+            LastUpdate(),
+            SizedBox(height: 12),
+            ListHeader(),
+            SizedBox(height: 8),
+            Expanded(child: MetalPriceList()),
           ],
         ),
       ),

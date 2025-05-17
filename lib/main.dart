@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:metal_price/screens/home_screen.dart';
+import 'package:metal_price/themes/dark_theme.dart';
+import 'package:metal_price/themes/light_theme.dart';
 
 void main() {
   runApp(const MetalPrice());
@@ -10,9 +12,12 @@ class MetalPrice extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+      theme: LightThemeData.lightTheme(),
+      darkTheme: DarkThemeData.darkTheme(),
+      themeMode: ThemeMode.light,
+      home: const HomeScreen(),
     );
   }
 }
