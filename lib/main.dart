@@ -1,10 +1,11 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:metal_price/data/api/api_services.dart';
 import 'package:metal_price/data/repo/metals_repo.dart';
 import 'package:metal_price/helper/bloc_observer.dart';
+import 'package:metal_price/helper/dio_helper.dart';
 import 'package:metal_price/logic/cubit/app_cubit.dart';
+import 'package:metal_price/logic/cubit/app_states.dart';
 import 'package:metal_price/presentation/screens/home_screen.dart';
 import 'package:metal_price/themes/dark_theme.dart';
 import 'package:metal_price/themes/light_theme.dart';
@@ -22,14 +23,21 @@ class MetalPrice extends StatelessWidget {
     return BlocProvider(
       create:
           (context) => AppCubit(
-            metalsRepo: MetalsRepo(apiServices: ApiServices(dio: Dio())),
+            metalsRepo: MetalsRepo(apiServices: ApiServices(dio: createDio())),
           ),
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: LightThemeData.lightTheme(),
-        darkTheme: DarkThemeData.darkTheme(),
-        themeMode: ThemeMode.light,
-        home: const HomeScreen(),
+      child: BlocBuilder<AppCubit, AppStates>(
+        builder: (context, state) {
+          return MaterialApp(
+            debugShowCheckedModeBanner: false,
+            theme: LightThemeData.lightTheme(),
+            darkTheme: DarkThemeData.darkTheme(),
+            themeMode:
+                AppCubit.get(context).isDarkMode
+                    ? ThemeMode.dark
+                    : ThemeMode.light,
+            home: const HomeScreen(),
+          );
+        },
       ),
     );
   }

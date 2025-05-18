@@ -1,1 +1,1 @@
-const String baseUrl = 'https://www.goldapi.io/api/';
+const String baseUrl = 'https://www.goldapi.io/api';

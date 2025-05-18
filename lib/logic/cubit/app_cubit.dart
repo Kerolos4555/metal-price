@@ -4,9 +4,15 @@ import 'package:metal_price/logic/cubit/app_states.dart';
 
 class AppCubit extends Cubit<AppStates> {
   final MetalsRepo metalsRepo;
+  bool isDarkMode = false;
   AppCubit({required this.metalsRepo}) : super(InitialState());
 
-  AppCubit get(context) => BlocProvider.of(context);
+  static AppCubit get(context) => BlocProvider.of(context);
+
+  void changeAppTheme() {
+    isDarkMode = !isDarkMode;
+    emit(AppModeState());
+  }
 
   Future<void> getMetal({required String symbol, required String code}) async {
     emit(LoadingState());

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:metal_price/logic/cubit/app_cubit.dart';
 import 'package:metal_price/presentation/widgets/horizontal_buttons.dart';
 import 'package:metal_price/presentation/widgets/last_update.dart';
 import 'package:metal_price/presentation/widgets/list_header.dart';
@@ -14,7 +15,9 @@ class HomeScreen extends StatelessWidget {
         title: const Text('Metals'),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              AppCubit.get(context).changeAppTheme();
+            },
             icon: const Icon(Icons.dark_mode_outlined),
           ),
         ],

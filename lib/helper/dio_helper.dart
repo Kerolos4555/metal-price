@@ -6,7 +6,7 @@ Dio createDio() {
   Dio dio = Dio(
     BaseOptions(
       baseUrl: baseUrl,
-      headers: {'x-access-token': apiKey, "Content-Type": "application/json"},
+      headers: {'x-access-token': apiKey, 'Content-Type': 'application/json'},
       receiveDataWhenStatusError: true,
       connectTimeout: const Duration(seconds: 45),
       receiveTimeout: const Duration(seconds: 45),
