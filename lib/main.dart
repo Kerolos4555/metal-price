@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:metal_price/screens/home_screen.dart';
+import 'package:metal_price/presentation/screens/home_screen.dart';
 import 'package:metal_price/themes/dark_theme.dart';
 import 'package:metal_price/themes/light_theme.dart';
 

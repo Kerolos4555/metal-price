@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:metal_price/widgets/text_icon_button.dart';
+import 'package:metal_price/presentation/widgets/text_icon_button.dart';
 
 class HorizontalButtons extends StatelessWidget {
   const HorizontalButtons({super.key});

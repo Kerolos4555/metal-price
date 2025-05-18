@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:metal_price/widgets/horizontal_buttons.dart';
-import 'package:metal_price/widgets/last_update.dart';
-import 'package:metal_price/widgets/list_header.dart';
-import 'package:metal_price/widgets/metal_price_list.dart';
+import 'package:metal_price/presentation/widgets/horizontal_buttons.dart';
+import 'package:metal_price/presentation/widgets/last_update.dart';
+import 'package:metal_price/presentation/widgets/list_header.dart';
+import 'package:metal_price/presentation/widgets/metal_price_list.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:metal_price/widgets/metal_item.dart';
+import 'package:metal_price/presentation/widgets/metal_item.dart';
 
 class MetalPriceList extends StatelessWidget {
   const MetalPriceList({super.key});
