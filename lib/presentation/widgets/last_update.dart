@@ -16,7 +16,10 @@ class LastUpdate extends StatelessWidget {
         ),
         IconButton(
           onPressed: () {
-            AppCubit.get(context).getMetal(symbol: 'XAU', code: 'USD');
+            AppCubit.get(context).getMetal(
+              symbol: AppCubit.get(context).selectedMetal,
+              code: AppCubit.get(context).selectedCurrency,
+            );
           },
           icon: const Icon(Icons.refresh),
         ),

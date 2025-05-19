@@ -6,6 +6,8 @@ import 'package:metal_price/logic/cubit/app_states.dart';
 class AppCubit extends Cubit<AppStates> {
   final MetalsRepo metalsRepo;
   bool isDarkMode = false;
+  String selectedMetal = 'XAU';
+  String selectedCurrency = 'USD';
   AppCubit({required this.metalsRepo}) : super(InitialState());
 
   static AppCubit get(context) => BlocProvider.of(context);
@@ -26,12 +28,18 @@ class AppCubit extends Cubit<AppStates> {
     emit(LoadingState());
     var result = await metalsRepo.getMetalDetails(symbol: symbol, code: code);
     result.fold(
-      (error) {
-        emit(ErrorState(errorMessage: error.errorMessage));
-      },
-      (metal) {
-        emit(SuccessState(metalModel: metal));
-      },
+      (error) => emit(ErrorState(errorMessage: error.errorMessage)),
+      (metal) => emit(SuccessState(metalModel: metal)),
     );
+  }
+
+  void updateMetal({required String metal}) {
+    selectedMetal = metal;
+    getMetal(symbol: selectedMetal, code: selectedCurrency);
+  }
+
+  void updateCurrency({required String currency}) {
+    selectedCurrency = currency;
+    getMetal(symbol: selectedMetal, code: selectedCurrency);
   }
 }
