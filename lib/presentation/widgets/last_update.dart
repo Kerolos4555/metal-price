@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:metal_price/logic/cubit/app_cubit.dart';
 
 class LastUpdate extends StatelessWidget {
   const LastUpdate({super.key});
@@ -10,10 +11,15 @@ class LastUpdate extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
-          DateFormat('EEEE, MMM d, yyyy').format(DateTime.now()),
+          DateFormat('EEEE, MMM d, yyyy - hh:mm a').format(DateTime.now()),
           style: Theme.of(context).textTheme.bodyMedium,
         ),
-        IconButton(onPressed: () {}, icon: const Icon(Icons.refresh)),
+        IconButton(
+          onPressed: () {
+            AppCubit.get(context).getMetal(symbol: 'XAU', code: 'USD');
+          },
+          icon: const Icon(Icons.refresh),
+        ),
       ],
     );
   }

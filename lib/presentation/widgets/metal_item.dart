@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class MetalItem extends StatelessWidget {
-  const MetalItem({super.key});
+  final String karat;
+  final double price;
+  const MetalItem({super.key, required this.karat, required this.price});
 
   @override
   Widget build(BuildContext context) {
@@ -11,8 +13,11 @@ class MetalItem extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text('24K', style: Theme.of(context).textTheme.bodyMedium),
-            Text('4378 EGP', style: Theme.of(context).textTheme.bodyMedium),
+            Text(karat, style: Theme.of(context).textTheme.bodyMedium),
+            Text(
+              price.toString(),
+              style: Theme.of(context).textTheme.bodyMedium,
+            ),
           ],
         ),
       ),

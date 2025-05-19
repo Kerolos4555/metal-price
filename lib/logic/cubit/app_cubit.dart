@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:metal_price/core/cache/shared_prefs_service.dart';
 import 'package:metal_price/data/repo/metals_repo.dart';
 import 'package:metal_price/logic/cubit/app_states.dart';
 
@@ -9,9 +10,16 @@ class AppCubit extends Cubit<AppStates> {
 
   static AppCubit get(context) => BlocProvider.of(context);
 
-  void changeAppTheme() {
-    isDarkMode = !isDarkMode;
-    emit(AppModeState());
+  void changeAppTheme({bool? isDarkFromCache}) {
+    if (isDarkFromCache != null) {
+      isDarkMode = isDarkFromCache;
+      emit(AppModeState());
+    } else {
+      isDarkMode = !isDarkMode;
+    }
+    SharedPrefsService.saveAppTheme(isDark: isDarkMode).then((value) {
+      emit(AppModeState());
+    });
   }
 
   Future<void> getMetal({required String symbol, required String code}) async {

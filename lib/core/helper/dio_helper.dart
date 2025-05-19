@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:metal_price/constants/strings.dart';
-import 'package:metal_price/secrets/api_key.dart';
+import 'package:metal_price/core/constants/strings.dart';
+import 'package:metal_price/core/secrets/api_key.dart';
 
 Dio createDio() {
   Dio dio = Dio(

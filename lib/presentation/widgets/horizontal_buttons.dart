@@ -9,8 +9,8 @@ class HorizontalButtons extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        TextIconButton(onPress: () {}, title: 'Egypt'),
         TextIconButton(onPress: () {}, title: 'Gold'),
+        TextIconButton(onPress: () {}, title: 'USD'),
       ],
     );
   }

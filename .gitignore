@@ -45,4 +45,4 @@ app.*.map.json
 /android/app/release
 
 # API key
-lib/secrets/api_key.dart
+lib/core/secrets/api_key.dart

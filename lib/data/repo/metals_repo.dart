@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:metal_price/data/api/api_services.dart';
 import 'package:metal_price/data/model/metal_model.dart';
-import 'package:metal_price/error/network_error.dart';
+import 'package:metal_price/core/error/network_error.dart';
 
 class MetalsRepo {
   final ApiServices apiServices;
