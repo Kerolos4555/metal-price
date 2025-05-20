@@ -12,12 +12,12 @@ Provides real-time prices for various precious metals such as gold and silver. T
 
 ## 🚀 Features:
 
-✅ Fetches real-time metal prices via an external API
-✅ Supports multiple currencies (e.g., USD, EGP)
-✅ Dynamic theme switching (light/dark) with persistent storage
-✅ Caches last selected metal, currency, and fetch timestamp
-✅ Clean and modular codebase following MVVM best practices
-✅ Localized time display for last update using intl package
+- ✅ Fetches real-time metal prices via an external API
+- ✅ Supports multiple currencies (e.g., USD, EGP)
+- ✅ Dynamic theme switching (light/dark) with persistent storage
+- ✅ Caches last selected metal, currency, and fetch timestamp
+- ✅ Clean and modular codebase following MVVM best practices
+- ✅ Localized time display for last update using intl package
 
 ## 🛠️ Tech
 
