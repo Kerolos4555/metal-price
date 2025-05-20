@@ -13,24 +13,48 @@ class MetalPriceList extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<AppCubit, AppStates>(
       builder: (context, state) {
-        if (state is SuccessState) {
+        if (AppCubit.get(context).metalModel != null) {
           return ListView(
             children: [
-              MetalItem(karat: '24K', price: state.metalModel.priceGram24k!),
+              MetalItem(
+                karat: '24K',
+                price: AppCubit.get(context).metalModel!.priceGram24k!,
+              ),
               const SizedBox(height: 8),
-              MetalItem(karat: '22K', price: state.metalModel.priceGram22k!),
+              MetalItem(
+                karat: '22K',
+                price: AppCubit.get(context).metalModel!.priceGram22k!,
+              ),
               const SizedBox(height: 8),
-              MetalItem(karat: '21K', price: state.metalModel.priceGram21k!),
+              MetalItem(
+                karat: '21K',
+                price: AppCubit.get(context).metalModel!.priceGram21k!,
+              ),
               const SizedBox(height: 8),
-              MetalItem(karat: '20K', price: state.metalModel.priceGram20k!),
+              MetalItem(
+                karat: '20K',
+                price: AppCubit.get(context).metalModel!.priceGram20k!,
+              ),
               const SizedBox(height: 8),
-              MetalItem(karat: '18K', price: state.metalModel.priceGram18k!),
+              MetalItem(
+                karat: '18K',
+                price: AppCubit.get(context).metalModel!.priceGram18k!,
+              ),
               const SizedBox(height: 8),
-              MetalItem(karat: '16K', price: state.metalModel.priceGram16k!),
+              MetalItem(
+                karat: '16K',
+                price: AppCubit.get(context).metalModel!.priceGram16k!,
+              ),
               const SizedBox(height: 8),
-              MetalItem(karat: '14K', price: state.metalModel.priceGram14k!),
+              MetalItem(
+                karat: '14K',
+                price: AppCubit.get(context).metalModel!.priceGram14k!,
+              ),
               const SizedBox(height: 8),
-              MetalItem(karat: '10K', price: state.metalModel.priceGram10k!),
+              MetalItem(
+                karat: '10K',
+                price: AppCubit.get(context).metalModel!.priceGram10k!,
+              ),
               const SizedBox(height: 8),
             ],
           );

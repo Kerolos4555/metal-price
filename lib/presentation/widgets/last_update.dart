@@ -14,11 +14,11 @@ class LastUpdate extends StatelessWidget {
         return Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            state is SuccessState
+            AppCubit.get(context).metalModel != null
                 ? Text(
                   DateFormat('EEEE, MMM d, yyyy - hh:mm a').format(
                     DateTime.fromMillisecondsSinceEpoch(
-                      state.metalModel.timesTamp! * 1000,
+                      AppCubit.get(context).metalModel!.timesTamp! * 1000,
                     ),
                   ),
                   style: Theme.of(context).textTheme.bodyMedium,
