@@ -25,9 +25,19 @@ class MetalPrice extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create:
-          (context) => AppCubit(
-            metalsRepo: MetalsRepo(apiServices: ApiServices(dio: createDio())),
-          )..changeAppTheme(isDarkFromCache: SharedPrefsService.getAppTheme()),
+          (context) =>
+              AppCubit(
+                  metalsRepo: MetalsRepo(
+                    apiServices: ApiServices(dio: createDio()),
+                  ),
+                )
+                ..changeAppTheme(
+                  isDarkFromCache: SharedPrefsService.getAppTheme(),
+                )
+                ..getMetal(
+                  symbol: SharedPrefsService.getCurrentMetal(),
+                  code: SharedPrefsService.getCurrentCurrency(),
+                ),
       child: BlocBuilder<AppCubit, AppStates>(
         builder: (context, state) {
           return MaterialApp(

@@ -1,4 +1,5 @@
 class MetalModel {
+  int? timesTamp;
   String? metal;
   String? currency;
   double? priceGram24k;
@@ -11,6 +12,7 @@ class MetalModel {
   double? priceGram10k;
 
   MetalModel({
+    this.timesTamp,
     this.metal,
     this.currency,
     this.priceGram24k,
@@ -24,6 +26,7 @@ class MetalModel {
   });
 
   MetalModel.fromJson(Map<String, dynamic> json) {
+    timesTamp = json['timestamp'];
     metal = json['metal'];
     currency = json['currency'];
     priceGram24k = json['price_gram_24k'];
@@ -38,6 +41,7 @@ class MetalModel {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = {};
+    data['timestamp'] = timesTamp;
     data['metal'] = metal;
     data['currency'] = currency;
     data['price_gram_24k'] = priceGram24k;
